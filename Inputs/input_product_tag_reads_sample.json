@@ -1,0 +1,21 @@
+{
+  "connection_key": "request",
+  "result": true,
+  "redis_key": "abcdefg",
+  "filepath": "/var/lib/aion/Data/rededge_sdc/abcdef.json",
+  "api_status_code": 200,
+  "runtime_session_id": "ab58fe706df248eea1c21c78b7b71908",
+  "business_partner": 101,
+  "service_label": "PRODUCT_MASTER_TAG",
+  "api_type": "reads",
+  "ProductTag": {
+    "Product": "A3750",
+    "ProductTag": "",
+    "BusinessPartner": 101
+  },
+  "api_schema": "DPFMProductTagReads",
+  "accepter": [
+    "ProductTag"
+  ],
+  "deleted": false
+}

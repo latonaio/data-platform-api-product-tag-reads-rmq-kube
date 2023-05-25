@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: data-platform-api-product-tag-reads-rmq-kube
+  name: data-platform-api-product-tag-reads-rmq-kube
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: data-platform-api-product-tag-reads-rmq-kube
+      app: PRODUCT_TAG
+  template:
+    metadata:
+      labels:
+        run: data-platform-api-product-tag-reads-rmq-kube
+        app: PRODUCT_TAG
+    spec:
+      hostname: data-platform-api-product-tag-reads-rmq-kube
+      nodeName: worker
+      containers:
+        - name: data-platform-api-product-tag-reads-rmq-kube
+          image: latonaio/data-platform-api-product-tag-reads-rmq-kube:latest
+          imagePullPolicy: Always
+          env:
+            - name: "RMQ_QUEUE_FROM"
+              value: "data-platform-api-product-tag-reads-queue"
+            - name: "RMQ_QUEUE_TO_SQL"
+              value: ""
+            - name: "RMQ_QUEUE_TO_EX_CONF"
+              value: ""
+            - name: "RMQ_QUEUE_TO_HEADERS_SUB_FUNC"
+              value: ""
+            - name: "RMQ_QUEUE_TO_ITEMS_SUB_FUNC"
+              value: ""
+            - name: "RMQ_SESSION_CONTROL_QUEUE"
+              value: ""
+            - name: "MONGODB_DB_NAME"
+              value: "DataPlatformMongoDBKube"
+          envFrom:
+            - configMapRef:
+                name: env-config
+            - secretRef:
+                name: env-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: data-platform-api-product-tag-reads-rmq-kube
+  name: data-platform-api-product-tag-reads-rmq-kube
+spec:
+  selector:
+    run: data-platform-api-product-tag-reads-rmq-kube
+  type: NodePort
+  ports:
+    - name: api
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+      nodePort: 30800

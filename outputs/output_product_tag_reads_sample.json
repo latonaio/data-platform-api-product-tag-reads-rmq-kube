@@ -1,0 +1,52 @@
+{
+  "connection_key": "response",
+  "result": true,
+  "redis_key": "abcdefg",
+  "filepath": "/var/lib/aion/Data/rededge_sdc/abcdef.json",
+  "api_status_code": 200,
+  "runtime_session_id": "ab58fe706df248eea1c21c78b7b71908",
+  "business_partner": 101,
+  "service_label": "PRODUCT_MASTER_TAG",
+  "api_type": "reads",
+  "message": {
+    "ProductTag": [
+      {
+        "key": "エネルギッシュ朝食",
+        "doc_count": 5
+      },
+      {
+        "key": "手軽な朝食",
+        "doc_count": 3
+      },
+      {
+        "key": "おいしい",
+        "doc_count": 1
+      },
+      {
+        "key": "インスタ映え",
+        "doc_count": 1
+      },
+      {
+        "key": "エネルギッシュ",
+        "doc_count": 1
+      },
+      {
+        "key": "タマゴパン",
+        "doc_count": 1
+      }
+    ]
+  },
+  "api_schema": "DPFMProductTagReads",
+  "accepter": [
+    "ProductTag"
+  ],
+  "deleted": false,
+  "sql_update_result": null,
+  "sql_update_error": "",
+  "subfunc_result": null,
+  "subfunc_error": "",
+  "exconf_result": null,
+  "exconf_error": "",
+  "api_processing_result": true,
+  "api_processing_error": ""
+}
